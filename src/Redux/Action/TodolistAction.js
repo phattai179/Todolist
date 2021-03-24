@@ -19,7 +19,7 @@ export const getTaskListAction = () => {
             }
 
         } catch (err) {
-            console.log(err.response.data)
+            console.log(err.response?.data)
         }
 
     }
@@ -41,7 +41,7 @@ export const addTaskListAction = (taskName) => {
             }
 
         } catch (err) {
-            console.log(err.response.data)
+            console.log(err.response?.data)
         }
 
     }
@@ -60,7 +60,7 @@ export const deleteTaskAction = (taskName) => {
             }
 
         }catch(err){
-            console.log(err.response.data)
+            console.log(err.response?.data)
         }
     }
 }

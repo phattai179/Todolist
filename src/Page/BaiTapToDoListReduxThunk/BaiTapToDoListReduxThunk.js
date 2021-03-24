@@ -145,7 +145,7 @@ export default function BaiTapToDoListReduxThunk(props) {
             <form onSubmit={handleChangeSubmit} className="card__body">
                 <div className="card__content">
                     <div className="card__title">
-                        <h2>My Tasks</h2>
+                        <h2>My Tasks haha</h2>
                         <p>September 9,2020</p>
                     </div>
 

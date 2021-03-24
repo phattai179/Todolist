@@ -29,7 +29,7 @@ export const addTaskListAction = (taskName) => {
     return async dispatch => {
 
         try {
-            let { data, status } = await Axios({
+            let {status } = await Axios({
                 url: `${DOMAIN}/api/ToDoList/AddTask
                 `,
                 method: 'POST',
@@ -50,7 +50,7 @@ export const addTaskListAction = (taskName) => {
 export const deleteTaskAction = (taskName) => {
     return async dispatch => {
         try{
-            let {data, status} = await Axios({
+            let {status} = await Axios({
                 url: `${DOMAIN}/api/ToDoList/deleteTask?taskName=${taskName}`,
                 method: 'DELETE'
             })
@@ -68,7 +68,7 @@ export const deleteTaskAction = (taskName) => {
 export const checkDoneTaskAction = (taskName) => {
     try{
         return async dispatch => {
-            let {data, status} = await Axios({
+            let {status} = await Axios({
                 url: `${DOMAIN}/api/ToDoList/doneTask?taskName=${taskName}`,
                 method: 'PUT'
             })
@@ -77,25 +77,23 @@ export const checkDoneTaskAction = (taskName) => {
                 dispatch(getTaskListAction())
             }
         }
-        
     }catch(err){
-        console.log(err.response.data)
+        console.log(err.response?.data)
     }
 }
 
 export const rejectTaskAction = (taskName) => {
     try{
         return async dispatch => {
-            let {data, status} = await Axios({
+            let {status} = await Axios({
                 url: `${DOMAIN}/api/ToDoList/rejectTask?taskName=${taskName}`,
                 method: 'PUT'
             })
-
             if(status === STATUS_CODE.SUCCESS){
                 dispatch(getTaskListAction())
             }
         }
     }catch(err) {
-        console.log(err.response.data)
+        console.log(err.response?.data)
     }
 }

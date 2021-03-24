@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import style from './Todolist.css'
-import Axios from 'axios'
-import { addTaskListAction, getTaskListAction, deleteTaskAction, checkDoneTaskAction, rejectTaskAction } from '../../Redux/Action/TodolistAction'
+// import style from './Todolist.css'
+// import Axios from 'axios'
+// import { addTaskListAction, getTaskListAction, deleteTaskAction, checkDoneTaskAction, rejectTaskAction } from '../../Redux/Action/TodolistAction'
 import { ADD_TASK_API_SAGA, CHECK_DONE_TASK_API_SAGA, DELETE_TASK_API_SAGA, GET_TASK_API_SAGA, REJECT_TASK_API_SAGA } from '../../Redux/Const/TodolistConst'
 
 export default function BaiTapToDoListReduxThunk(props) {
@@ -162,7 +162,7 @@ export default function BaiTapToDoListReduxThunk(props) {
             <button className="btn btn-primary" onClick={getTaskList} >Get Todolist ReduxThunk</button>
 
             <div className="card__header">
-                <img src="./img/X2oObC4.png" alt="123"/>
+                <img src="./img/X2oObC4.png" alt="123" />
             </div>
             {/* CardBody */}
             <form onSubmit={handleChangeSubmit} className="card__body">

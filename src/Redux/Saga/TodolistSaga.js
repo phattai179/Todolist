@@ -1,6 +1,7 @@
-import { call, delay, fork, put, take, takeEvery, takeLatest } from 'redux-saga/effects'
-import Axios from 'axios'
-import { DOMAIN, STATUS_CODE } from '../../Util/setting'
+import { call, delay, put, takeLatest } from 'redux-saga/effects'
+// import {fork, take, takeEvery} from 'redux-saga/effects'
+// import Axios from 'axios'
+import {STATUS_CODE } from '../../Util/setting'
 import { ADD_TASK_API_SAGA, CHECK_DONE_TASK_API_SAGA, DELETE_TASK_API_SAGA, GET_TASK_API_SAGA, GET_TASK_LIST, REJECT_TASK_API_SAGA } from '../Const/TodolistConst'
 import { toDoListService } from '../../Services/TodolistService'
 import { DISPLAY_LOADING, HIDE_LOADING } from '../Const/LoadingCont'
@@ -77,7 +78,7 @@ function* addTaskApiAction(action) {
     // yield call nhận vào 1 hàm trả về promise
 
     try {
-        let { data, status } = yield call(() => {
+        let { status } = yield call(() => {
             return toDoListService.addTaskApi(taskName)
         })
 
@@ -105,7 +106,7 @@ function* deleteTaskApiAction(action) {
 
     // Gọi Api
     try {
-        let { data, status } = yield call(() => {
+        let { status } = yield call(() => {
             return toDoListService.deleteTaskApi(taskName)
         })
 
@@ -161,7 +162,7 @@ function* rejectTaskApiAction(action) {
 
     // Gọi api
     try {
-        let { data, status } = yield call(() => {
+        let { status } = yield call(() => {
             return toDoListService.rejectTaskApi(taskName)
         })
 

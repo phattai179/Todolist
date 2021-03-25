@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import style from './Todolist.css'
+import './Todolist.css'
 // import Axios from 'axios'
 // import { addTaskListAction, getTaskListAction, deleteTaskAction, checkDoneTaskAction, rejectTaskAction } from '../../Redux/Action/TodolistAction'
 import { ADD_TASK_API_SAGA, CHECK_DONE_TASK_API_SAGA, DELETE_TASK_API_SAGA, GET_TASK_API_SAGA, REJECT_TASK_API_SAGA } from '../../Redux/Const/TodolistConst'
@@ -28,7 +28,8 @@ export default function BaiTapToDoListReduxThunk(props) {
         dispatch({
             type: GET_TASK_API_SAGA,
         })
-    }, [])
+        // Npte cần thêm [] để chạy 1 lần sau khi hiển thị
+    })
 
     const renderTaskToDo = () => {
         return taskList.filter(task => !task.status).map((item, index) => {

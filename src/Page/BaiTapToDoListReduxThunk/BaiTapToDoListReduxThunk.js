@@ -23,8 +23,10 @@ export default function BaiTapToDoListReduxThunk(props) {
 
     // Dùng useEffect để chạy 1 lần thì component hiện ra như componentDidMount
     useEffect(() => {
-        getTaskList()
-    }, [])
+        // getTaskList()
+        dispatch(getTaskListAction())
+        // Note cần thêm [] để chạy 1 lần sau khi hiển thị
+    })
 
     const renderTaskToDo = () => {
         return taskList.filter(task => !task.status).map((item, index) => {
@@ -57,11 +59,11 @@ export default function BaiTapToDoListReduxThunk(props) {
                     }} type="button" className="remove">
                         <i className="fa fa-trash-alt" />
                     </button>
-                    <button onClick = {() =>{
+                    <button onClick={() => {
                         rejectTask(item.taskName)
                     }} type="button" className="complete">
-                        <i class="far fa-undo-alt"></i>
-                        <i class="fas fa-undo-alt"></i>
+                        <i className="far fa-undo-alt"></i>
+                        <i className="fas fa-undo-alt"></i>
                     </button>
                 </div>
             </li>
@@ -69,9 +71,9 @@ export default function BaiTapToDoListReduxThunk(props) {
     }
 
     // Get taskList
-    const getTaskList = () => {
-        dispatch(getTaskListAction())
-    }
+    // const getTaskList = () => {
+    //     dispatch(getTaskListAction())
+    // }
 
     // Xóa Task
     const deleteTask = (taskName) => {

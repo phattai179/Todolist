@@ -32,7 +32,7 @@ export default function BaiTapToDoListReduxThunk(props) {
     })
 
     const renderTaskToDo = () => {
-        return taskList.filter(task => !task.status).map((item, index) => {
+        return taskList?.filter(task => !task.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">
@@ -53,7 +53,7 @@ export default function BaiTapToDoListReduxThunk(props) {
     }
 
     const renderTaskToDone = () => {
-        return taskList.filter(task => task.status).map((item, index) => {
+        return taskList?.filter(task => task.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">

@@ -6,7 +6,7 @@ import { addTaskListAction, getTaskListAction, deleteTaskAction, checkDoneTaskAc
 
 export default function BaiTapToDoListReduxThunk(props) {
 
-    const { taskList } = useSelector(state => state.TodolistReducer)
+    let { taskList } = useSelector(state => state.TodolistReducer)
     const dispatch = useDispatch()
 
     // Sử dụng useState để tạo state trên component
@@ -26,10 +26,10 @@ export default function BaiTapToDoListReduxThunk(props) {
         // getTaskList()
         dispatch(getTaskListAction())
         // Note cần thêm [] để chạy 1 lần sau khi hiển thị
-    },[])
+    })
 
     const renderTaskToDo = () => {
-        return taskList.filter(task => !task.status).map((item, index) => {
+        return taskList?.filter(task => !task.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">
@@ -50,7 +50,7 @@ export default function BaiTapToDoListReduxThunk(props) {
     }
 
     const renderTaskToDone = () => {
-        return taskList.filter(task => task.status).map((item, index) => {
+        return taskList?.filter(task => task.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">

@@ -26,7 +26,7 @@ export default function BaiTapToDoListReduxThunk(props) {
         // getTaskList()
         dispatch(getTaskListAction())
         // Note cần thêm [] để chạy 1 lần sau khi hiển thị
-    })
+    },[])
 
     const renderTaskToDo = () => {
         return taskList.filter(task => !task.status).map((item, index) => {

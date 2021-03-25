@@ -29,8 +29,7 @@ export const addTaskListAction = (taskName) => {
 
         try {
             let { status } = await Axios({
-                url: `${DOMAIN}/api/ToDoList/AddTask
-                `,
+                url: `${DOMAIN}/api/ToDoList/AddTask`,
                 method: 'POST',
                 data: { taskName: taskName }
             })
